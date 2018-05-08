@@ -1,29 +1,77 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <div id="app" class="content">
+    <SideMenu selected="" />
+    <section class="main">
+      <NavBar />
+      <router-view />
+    </section>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+<script>
+import SideMenu from "@/components/SideMenu.vue";
+import NavBar from "@/components/NavBar.vue";
+
+export default {
+  components: {
+    SideMenu,
+    NavBar
   }
+};
+</script>
+
+<style>
+:root {
+  /* colors */
+  --color-white: rgb(255, 255, 255);
+  --color-whitefade: rgba(255, 255, 255, 0.3);
+  --color-lightgrey: rgb(219, 223, 234);
+  --color-hardgrey: rgb(123, 133, 148);
+  --color-background: rgb(231, 234, 241);
+  --color-text: rgb(78, 81, 94);
+  --color-subtext: rgb(160, 163, 177);
+  --color-primary: rgb(228, 68, 69);
+  --color-darkprimary: rgb(215, 51, 51);
+  --color-positive: green;
+  --color-negative: red;
+  --color-warning: orange;
+
+  /* font sizes */
+  --font-size-base: 16px;
+  --font-size-medium: 0.9rem;
+  --font-size-small: 0.8rem;
+  --font-size-big: 1.25rem;
+  --font-size-super: 3.75rem;
+}
+
+html {
+  font-size: var(--font-size-base);
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  height: 100vh;
 }
 </style>
