@@ -1,8 +1,8 @@
 <template>
   <div id="app" class="content">
-    <SideMenu selected="" />
+    <side-menu selected="" />
     <section class="main">
-      <NavBar />
+      <nav-bar />
       <router-view />
     </section>
   </div>

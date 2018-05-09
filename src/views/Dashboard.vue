@@ -1,26 +1,30 @@
 <template>
   <div class="main__container">
-    <section class="c-statistics">
-      <div class="c-statistics-box">
-        <h3 class="c-statistics-box__big-number">30
-          <sup class="c-statistics-box__small-number c-statistics-box__small-number--color-positive">(+12)</sup>
-        </h3>
-        <span class="c-statistics-box__sub-text">Usuarios registrados hoy</span>
-      </div>
-      <div class="c-statistics-box">
-        <h3 class="c-statistics-box__big-number">21
-          <sup class="c-statistics-box__small-number c-statistics-box__small-number--color-positive">(+2)</sup>
-        </h3>
-        <span class="c-statistics-box__sub-text">Noticias publicadas</span>
-      </div>
-      <div class="c-statistics-box">
-        <h3 class="c-statistics-box__big-number">129
-          <sup class="c-statistics-box__small-number c-statistics-box__small-number--color-negative">(-59)</sup>
-        </h3>
-        <span class="c-statistics-box__sub-text">Comentarios nuevos</span>
-      </div>
+    <section class="dashboard-statistics">
+      <statistics-box
+        v-for="(data, index) in statistics"
+        v-bind:key="index"
+        v-bind:number="data.number"
+        v-bind:difference="data.difference"
+        v-bind:sub-text="data.subText"
+      ></statistics-box>
     </section>
     <section class="dashboard-boxes">
+      <box title="Artículos pendientes">
+        <template slot="action">
+          <a href="" class="c-button">Ver todos</a>
+        </template>
+        <ul class="simplelist">
+          <li v-for="(data, index) in pendingArticles" v-bind:key="index" class="simplelist__item">
+            <a href="" class="simplelist__item-link">
+              {{ data.title }}
+            </a>
+            <div class="simplelist__item-extra-info">
+              <tag>{{ data.type }}</tag>
+            </div>
+          </li>
+        </ul>
+      </box>
       <div class="c-box">
         <div class="c-box__header">
           <h3 class="c-box__title">Artículos pendientes</h3>
@@ -591,12 +595,67 @@
 </template>
 
 <script>
+import StatisticsBox from "@/components/StatisticsBox.vue";
+import Box from "@/components/Box.vue";
+import Tag from "@/components/Tag.vue";
+
 export default {
-  name: "dashboard"
+  name: "dashboard",
+  components: {
+    StatisticsBox,
+    Box,
+    Tag
+  },
+  data: function() {
+    return {
+      statistics: [
+        { number: 42, difference: +12, subText: "Usuarios registrados hoy" },
+        { number: 12, difference: +12, subText: "Noticias publicadas" },
+        { number: 123, difference: +12, subText: "Comentarios nuevos" }
+      ],
+      pendingArticles: [
+        {
+          id: 1,
+          title: "Sea of Thieves: Diario de a bordo (I)",
+          type: "Articulo"
+        },
+        {
+          id: 2,
+          title: "Amanita trabaja en un juego de terror «muy perturbador»",
+          type: "Opinión"
+        },
+        {
+          id: 3,
+          title: "Tráiler de lanzamiento de Assassin's Creed: Rogue Remastered",
+          type: "Noticia"
+        },
+        {
+          id: 4,
+          title: "Sigue aquí el Nindies Showcase de primavera",
+          type: "Noticia"
+        },
+        {
+          id: 5,
+          title: "Sea of Thieves: Diario de a bordo (II)",
+          type: "Articulo"
+        }
+      ]
+    };
+  }
 };
 </script>
 
 <style scoped>
+.dashboard-statistics {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-lightgrey);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 160px;
+  align-items: center;
+  justify-items: center;
+}
+
 .dashboard-boxes {
   display: grid;
   grid-template-columns: 1fr 1fr;
