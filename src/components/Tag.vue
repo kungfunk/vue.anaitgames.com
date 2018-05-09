@@ -1,5 +1,5 @@
 <template>
-  <span class="tag" v-bind:class="styleModifier">
+  <span class="tag" :class="styleModifier">
     <slot></slot>
   </span>
 </template>
@@ -13,7 +13,7 @@ export default {
   computed: {
     styleModifier: function() {
       return {
-        "tag--negative": true,
+        "tag--negative": false,
         "tag--warning": false
       };
     }

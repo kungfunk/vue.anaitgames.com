@@ -3,10 +3,10 @@
     <section class="dashboard-statistics">
       <statistics-box
         v-for="(data, index) in statistics"
-        v-bind:key="index"
-        v-bind:number="data.number"
-        v-bind:difference="data.difference"
-        v-bind:sub-text="data.subText"
+        :key="index"
+        :number="data.number"
+        :difference="data.difference"
+        :sub-text="data.subText"
       ></statistics-box>
     </section>
     <section class="dashboard-boxes">
@@ -15,7 +15,7 @@
           <a href="" class="c-button">Ver todos</a>
         </template>
         <ul class="simplelist">
-          <li v-for="(data, index) in pendingArticles" v-bind:key="index" class="simplelist__item">
+          <li v-for="(data, index) in pendingArticles" :key="index" class="simplelist__item">
             <a href="" class="simplelist__item-link">
               {{ data.title }}
             </a>
@@ -25,229 +25,54 @@
           </li>
         </ul>
       </box>
-      <div class="c-box">
-        <div class="c-box__header">
-          <h3 class="c-box__title">Artículos pendientes</h3>
-          <div class="c-box__action">
-            <a href="" class="c-button">Ver todos</a>
-          </div>
-        </div>
-        <div class="c-box__content">
-          <ul class="simplelist">
-            <li class="simplelist__item">
-              <a href="" class="simplelist__item-link">
-                Sea of Thieves: Diario de a bordo (I)
-              </a>
-              <div class="simplelist__item-extra-info">
-                <span class="c-label">Articulo</span>
-              </div>
-            </li>
-            <li class="simplelist__item">
-              <a href="" class="simplelist__item-link">
-                Amanita trabaja en un juego de terror «muy perturbador»
-              </a>
-              <div class="simplelist__item-extra-info">
-                <span class="c-label">Opinión</span>
-              </div>
-            </li>
-            <li class="simplelist__item">
-              <a href="" class="simplelist__item-link">
-                Tráiler de lanzamiento de Assassin's Creed: Rogue Remastered
-              </a>
-              <div class="simplelist__item-extra-info">
-                <span class="c-label">Noticia</span>
-              </div>
-            </li>
-            <li class="simplelist__item">
-              <a href="" class="simplelist__item-link">
-                Sigue aquí el Nindies Showcase de primavera
-              </a>
-              <div class="simplelist__item-extra-info">
-                <span class="c-label">Noticia</span>
-              </div>
-            </li>
-            <li class="simplelist__item">
-              <a href="" class="simplelist__item-link">
-                Sea of Thieves: Diario de a bordo (I)
-              </a>
-              <div class="simplelist__item-extra-info">
-                <span class="c-label">Articulo</span>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="c-box">
-        <div class="c-box__header">
-          <h3 class="c-box__title">Ultimos usuarios registrados</h3>
-          <div class="c-box__action">
-            <a href="" class="c-button">Ver todos</a>
-          </div>
-        </div>
-        <div class="c-box__content">
-          <ul class="simplelist">
-            <li class="simplelist__item simplelist__item--three-colums">
-              <span class="c-avatar">
-                <img src="https://api.adorable.io/avatars/40/1.png" alt="">
-              </span>
-              <span class="simplelist__item-link">
-                Pinjed
-              </span>
-              <div class="c-date">
-                Hoy a las 12:03
-              </div>
-            </li>
-            <li class="simplelist__item simplelist__item--three-colums">
-              <span class="c-avatar">
-                <img src="https://api.adorable.io/avatars/40/2.png" alt="">
-              </span>
-              <span class="simplelist__item-link">
-                Muerte Martinez
-              </span>
-              <div class="c-date">
-                Ayer a las 23:30
-              </div>
-            </li>
-            <li class="simplelist__item simplelist__item--three-colums">
-              <span class="c-avatar">
-                <img src="https://api.adorable.io/avatars/40/3.png" alt="">
-              </span>
-              <span class="simplelist__item-link">
-                Pep Sanchez
-              </span>
-              <div class="c-date">
-                25 de Mayo a las 11:40
-              </div>
-            </li>
-            <li class="simplelist__item simplelist__item--three-colums">
-              <span class="c-avatar">
-                <img src="https://api.adorable.io/avatars/40/4.png" alt="">
-              </span>
-              <span class="simplelist__item-link">
-                Vlanco de Vendetta
-              </span>
-              <div class="c-date">
-                22 de Mayo a las 09:12
-              </div>
-            </li>
-            <li class="simplelist__item simplelist__item--three-colums">
-              <span class="c-avatar">
-                <img src="https://api.adorable.io/avatars/40/5.png" alt="">
-              </span>
-              <span class="simplelist__item-link">
-                Querido Freejolito
-              </span>
-              <div class="c-date">
-                22 de Mayo a las 09:11
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="c-box">
-        <div class="c-box__header">
-          <h3 class="c-box__title">Drafts</h3>
-          <div class="c-box__action">
-            <a href="" class="c-button">Ver todos</a>
-          </div>
-        </div>
-        <div class="c-box__content">
-          <ul class="simplelist">
-            <li class="simplelist__item">
-              <span class="simplelist__item-link">
-                Sea of Thieves: Diario de a bordo (I)
-              </span>
-              <div class="simplelist__item-extra-info">
-                <span class="c-label">Articulo</span>
-              </div>
-            </li>
-            <li class="simplelist__item">
-              <span class="simplelist__item-link">
-                Amanita trabaja en un juego de terror «muy perturbador»
-              </span>
-              <div class="simplelist__item-extra-info">
-                <span class="c-label">Opinión</span>
-              </div>
-            </li>
-            <li class="simplelist__item">
-              <span class="simplelist__item-link">
-                Tráiler de lanzamiento de Assassin's Creed: Rogue Remastered
-              </span>
-              <div class="simplelist__item-extra-info">
-                <span class="c-label">Noticia</span>
-              </div>
-            </li>
-            <li class="simplelist__item">
-              <span class="simplelist__item-link">
-                Sigue aquí el Nindies Showcase de primavera
-              </span>
-              <div class="simplelist__item-extra-info">
-                <span class="c-label">Noticia</span>
-              </div>
-            </li>
-            <li class="simplelist__item">
-              <span class="simplelist__item-link">
-                Sea of Thieves: Diario de a bordo (I)
-              </span>
-              <div class="simplelist__item-extra-info">
-                <span class="c-label">Articulo</span>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="c-box">
-        <div class="c-box__header">
-          <h3 class="c-box__title">Ultimas noticias</h3>
-          <div class="c-box__action">
-            <a href="" class="c-button">Ver todos</a>
-          </div>
-        </div>
-        <div class="c-box__content">
-          <ul class="simplelist">
-            <li class="simplelist__item">
-              <span class="simplelist__item-link">
-                Sea of Thieves: Diario de a bordo (I)
-              </span>
-              <div class="simplelist__item-extra-info">
-                <span class="c-label">Articulo</span>
-              </div>
-            </li>
-            <li class="simplelist__item">
-              <span class="simplelist__item-link">
-                Amanita trabaja en un juego de terror «muy perturbador»
-              </span>
-              <div class="simplelist__item-extra-info">
-                <span class="c-label">Opinión</span>
-              </div>
-            </li>
-            <li class="simplelist__item">
-              <span class="simplelist__item-link">
-                Tráiler de lanzamiento de Assassin's Creed: Rogue Remastered
-              </span>
-              <div class="simplelist__item-extra-info">
-                <span class="c-label">Noticia</span>
-              </div>
-            </li>
-            <li class="simplelist__item">
-              <span class="simplelist__item-link">
-                Sigue aquí el Nindies Showcase de primavera
-              </span>
-              <div class="simplelist__item-extra-info">
-                <span class="c-label">Noticia</span>
-              </div>
-            </li>
-            <li class="simplelist__item">
-              <span class="simplelist__item-link">
-                Sea of Thieves: Diario de a bordo (I)
-              </span>
-              <div class="simplelist__item-extra-info">
-                <span class="c-label">Articulo</span>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
+      <box title="Ultimos usuarios registrados">
+        <template slot="action">
+          <a href="" class="c-button">Ver todos</a>
+        </template>
+        <ul class="simplelist">
+          <li v-for="(data, index) in latestsUsers" :key="index" class="simplelist__item  simplelist__item--three-colums">
+            <span class="c-avatar">
+              <img :src="data.avatarUrl" :alt="data.name">
+            </span>
+            <span class="simplelist__item-link">
+              {{ data.name }}
+            </span>
+            <div class="c-date">
+              {{ data.registerDate }}
+            </div>
+          </li>
+        </ul>
+      </box>
+      <box title="Drafts">
+        <template slot="action">
+          <a href="" class="c-button">Ver todos</a>
+        </template>
+        <ul class="simplelist">
+          <li v-for="(data, index) in pendingArticles" :key="index" class="simplelist__item">
+            <a href="" class="simplelist__item-link">
+              {{ data.title }}
+            </a>
+            <div class="simplelist__item-extra-info">
+              <tag>{{ data.type }}</tag>
+            </div>
+          </li>
+        </ul>
+      </box>
+      <box title="Ultimas noticias">
+        <template slot="action">
+          <a href="" class="c-button">Ver todas</a>
+        </template>
+        <ul class="simplelist">
+          <li v-for="(data, index) in pendingArticles" :key="index" class="simplelist__item">
+            <a href="" class="simplelist__item-link">
+              {{ data.title }}
+            </a>
+            <div class="simplelist__item-extra-info">
+              <tag>{{ data.type }}</tag>
+            </div>
+          </li>
+        </ul>
+      </box>
     </section>
     <section class="dashboard-comments">
       <div class="c-box">
@@ -638,6 +463,38 @@ export default {
           id: 5,
           title: "Sea of Thieves: Diario de a bordo (II)",
           type: "Articulo"
+        }
+      ],
+      latestsUsers: [
+        {
+          id: 1,
+          name: "Pinjed",
+          avatarUrl: "https://api.adorable.io/avatars/40/1.png",
+          registerDate: "Hoy a las 12:03"
+        },
+        {
+          id: 2,
+          name: "Muete Martinez",
+          avatarUrl: "https://api.adorable.io/avatars/40/2.png",
+          registerDate: "Hoy a las 12:03"
+        },
+        {
+          id: 3,
+          name: "V de Vlanco",
+          avatarUrl: "https://api.adorable.io/avatars/40/3.png",
+          registerDate: "Hoy a las 12:03"
+        },
+        {
+          id: 4,
+          name: "Pep Sanchez",
+          avatarUrl: "https://api.adorable.io/avatars/40/4.png",
+          registerDate: "Hoy a las 12:03"
+        },
+        {
+          id: 5,
+          name: "Free",
+          avatarUrl: "https://api.adorable.io/avatars/40/5.png",
+          registerDate: "Hoy a las 12:03"
         }
       ]
     };
