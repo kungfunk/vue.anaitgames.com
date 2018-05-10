@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: "box",
+  name: "base-box",
   props: {
     title: String
   }

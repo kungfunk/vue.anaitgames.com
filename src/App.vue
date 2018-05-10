@@ -1,21 +1,21 @@
 <template>
   <div id="app" class="content">
-    <side-menu selected="" />
+    <the-side-menu selected=""></the-side-menu>
     <section class="main">
-      <nav-bar />
-      <router-view />
+      <the-navbar></the-navbar>
+      <router-view></router-view>
     </section>
   </div>
 </template>
 
 <script>
-import SideMenu from "@/components/SideMenu.vue";
-import NavBar from "@/components/NavBar.vue";
+import TheSideMenu from "@/components/TheSideMenu.vue";
+import TheNavbar from "@/components/TheNavbar.vue";
 
 export default {
   components: {
-    SideMenu,
-    NavBar
+    TheSideMenu,
+    TheNavbar
   }
 };
 </script>
@@ -27,7 +27,7 @@ export default {
   --color-whitefade: rgba(255, 255, 255, 0.3);
   --color-lightgrey: rgb(219, 223, 234);
   --color-hardgrey: rgb(123, 133, 148);
-  --color-background: rgb(231, 234, 241);
+  --color-background: rgb(241, 241, 243);
   --color-text: rgb(78, 81, 94);
   --color-subtext: rgb(160, 163, 177);
   --color-primary: rgb(228, 68, 69);
@@ -73,5 +73,9 @@ a {
   display: grid;
   grid-template-columns: 80px 1fr;
   height: 100vh;
+}
+
+.main {
+  background-color: var(--color-background);
 }
 </style>

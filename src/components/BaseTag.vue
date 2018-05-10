@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "tag",
+  name: "base-tag",
   props: {
     type: String
   },

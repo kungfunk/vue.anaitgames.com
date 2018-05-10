@@ -82,7 +82,7 @@
 
 <script>
 export default {
-  name: "side-menu",
+  name: "the-side-menu",
   props: {
     selected: String
   }

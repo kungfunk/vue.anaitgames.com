@@ -10,9 +10,11 @@
       ></statistics-box>
     </section>
     <section class="dashboard-boxes">
-      <box title="Artículos pendientes">
+      <base-box title="Artículos pendientes">
         <template slot="action">
-          <a href="" class="c-button">Ver todos</a>
+          <router-link to="/posts">
+            <base-button>Ver Todos</base-button>
+          </router-link>
         </template>
         <ul class="simplelist">
           <li v-for="(data, index) in pendingArticles" :key="index" class="simplelist__item">
@@ -20,20 +22,20 @@
               {{ data.title }}
             </a>
             <div class="simplelist__item-extra-info">
-              <tag>{{ data.type }}</tag>
+              <base-tag>{{ data.type }}</base-tag>
             </div>
           </li>
         </ul>
-      </box>
-      <box title="Ultimos usuarios registrados">
+      </base-box>
+      <base-box title="Ultimos usuarios registrados">
         <template slot="action">
-          <a href="" class="c-button">Ver todos</a>
+          <router-link to="/users">
+            <base-button>Ver Todos</base-button>
+          </router-link>
         </template>
         <ul class="simplelist">
           <li v-for="(data, index) in latestsUsers" :key="index" class="simplelist__item  simplelist__item--three-colums">
-            <span class="c-avatar">
-              <img :src="data.avatarUrl" :alt="data.name">
-            </span>
+            <base-avatar :url="data.avatarUrl" :alt="data.name"></base-avatar>
             <span class="simplelist__item-link">
               {{ data.name }}
             </span>
@@ -42,10 +44,12 @@
             </div>
           </li>
         </ul>
-      </box>
-      <box title="Drafts">
+      </base-box>
+      <base-box title="Drafts">
         <template slot="action">
-          <a href="" class="c-button">Ver todos</a>
+          <router-link to="/posts">
+            <base-button>Ver Todos</base-button>
+          </router-link>
         </template>
         <ul class="simplelist">
           <li v-for="(data, index) in pendingArticles" :key="index" class="simplelist__item">
@@ -53,14 +57,16 @@
               {{ data.title }}
             </a>
             <div class="simplelist__item-extra-info">
-              <tag>{{ data.type }}</tag>
+              <base-tag>{{ data.type }}</base-tag>
             </div>
           </li>
         </ul>
-      </box>
-      <box title="Ultimas noticias">
+      </base-box>
+      <base-box title="Ultimas noticias">
         <template slot="action">
-          <a href="" class="c-button">Ver todas</a>
+          <router-link to="/posts">
+            <base-button>Ver Todos</base-button>
+          </router-link>
         </template>
         <ul class="simplelist">
           <li v-for="(data, index) in pendingArticles" :key="index" class="simplelist__item">
@@ -68,11 +74,11 @@
               {{ data.title }}
             </a>
             <div class="simplelist__item-extra-info">
-              <tag>{{ data.type }}</tag>
+              <base-tag>{{ data.type }}</base-tag>
             </div>
           </li>
         </ul>
-      </box>
+      </base-box>
     </section>
     <section class="dashboard-comments">
       <div class="c-box">
@@ -421,15 +427,19 @@
 
 <script>
 import StatisticsBox from "@/components/StatisticsBox.vue";
-import Box from "@/components/Box.vue";
-import Tag from "@/components/Tag.vue";
+import BaseBox from "@/components/BaseBox.vue";
+import BaseTag from "@/components/BaseTag.vue";
+import BaseAvatar from "@/components/BaseAvatar.vue";
+import BaseButton from "@/components/BaseButton.vue";
 
 export default {
   name: "dashboard",
   components: {
     StatisticsBox,
-    Box,
-    Tag
+    BaseBox,
+    BaseTag,
+    BaseAvatar,
+    BaseButton
   },
   data: function() {
     return {
