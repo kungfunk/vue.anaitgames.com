@@ -17,7 +17,7 @@ export default {
   },
   computed: {
     getSize: function() {
-      switch(this.size) {
+      switch (this.size) {
         case SIZE_BIG:
           return CLASSNAME_BIG;
         case SIZE_SMALL:

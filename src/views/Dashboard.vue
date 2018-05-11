@@ -18,9 +18,9 @@
         </template>
         <ul class="simplelist">
           <li v-for="(data, index) in pendingArticles" :key="index" class="simplelist__item">
-            <a href="" class="simplelist__item-link">
+            <router-link :to="{ name: 'post', params: { id: data.id } }" class="simplelist__item-link">
               {{ data.title }}
-            </a>
+            </router-link>
             <div class="simplelist__item-extra-info">
               <base-tag>{{ data.type }}</base-tag>
             </div>
@@ -39,9 +39,7 @@
             <span class="simplelist__item-link">
               {{ data.name }}
             </span>
-            <div class="c-date">
-              {{ data.registerDate }}
-            </div>
+            <base-date :date="data.registerDate"></base-date>
           </li>
         </ul>
       </base-box>
@@ -431,6 +429,7 @@ import BaseBox from "@/components/BaseBox.vue";
 import BaseTag from "@/components/BaseTag.vue";
 import BaseAvatar from "@/components/BaseAvatar.vue";
 import BaseButton from "@/components/BaseButton.vue";
+import BaseDate from "@/components/BaseDate.vue";
 
 export default {
   name: "dashboard",
@@ -439,7 +438,8 @@ export default {
     BaseBox,
     BaseTag,
     BaseAvatar,
-    BaseButton
+    BaseButton,
+    BaseDate
   },
   data: function() {
     return {
